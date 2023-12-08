@@ -54,7 +54,7 @@ RSpec.describe Approval::ExecuteForm, type: :model do
 
       it { is_expected.to eq true }
       it { expect { subject }.to change { Book.count }.by(1) }
-      it { expect { subject }.to change { ::Approval::Comment.count }.by(2) }
+      it { expect { subject }.to change { Approval::Comment.count }.by(2) }
       it { expect { subject }.to change { request.state }.from('approved').to('executed') }
     end
   end
@@ -71,7 +71,7 @@ RSpec.describe Approval::ExecuteForm, type: :model do
         end
       end
 
-      it { expect { form.save! }.to raise_error(::ActiveRecord::RecordInvalid) }
+      it { expect { form.save! }.to raise_error(ActiveRecord::RecordInvalid) }
     end
 
     context 'when valid' do
@@ -86,7 +86,7 @@ RSpec.describe Approval::ExecuteForm, type: :model do
       end
 
       it { expect { form.save }.to change { Book.count }.by(1) }
-      it { expect { form.save }.to change { ::Approval::Comment.count }.by(2) }
+      it { expect { form.save }.to change { Approval::Comment.count }.by(2) }
       it { expect { form.save }.to change { request.state }.from('approved').to('executed') }
     end
   end

@@ -21,5 +21,5 @@ module Approval
 end
 
 require 'approval/config'
-require 'approval/engine' if defined?(::Rails)
+require 'approval/engine' if defined?(Rails)
 require 'approval/version'

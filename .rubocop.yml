@@ -64,7 +64,7 @@ Rails/HasAndBelongsToMany:
   Enabled: false
 
 Metrics/BlockLength:
-  IgnoredMethods: ['describe', 'context', 'it', class_methods, define, factory]
+  AllowedMethods: ['describe', 'context', 'it', class_methods, define, factory]
   Exclude:
     - spec/system/*
     - app/models/pos/concerns/orders_statistics.rb

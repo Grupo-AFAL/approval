@@ -55,7 +55,8 @@ module Approval
       return 'approved' if approved?
       return 'cancelled' if cancelled?
       return 'rejected' if rejected?
-      return 'pending' if pending?
+
+      'pending' if pending?
     end
 
     private
