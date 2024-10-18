@@ -12,7 +12,7 @@ ENV['RAILS_ENV'] = 'test'
 
 require 'rails'
 ENV['RAILS'] = Rails.version
-ENV['RAILS_ROOT'] = File.expand_path("../tmp/rails-#{ENV['RAILS']}", __dir__)
+ENV['RAILS_ROOT'] = File.expand_path("../tmp/rails-#{ENV.fetch('RAILS', nil)}", __dir__)
 
 # Create the test app if it doesn't exists
 unless File.exist?(ENV['RAILS_ROOT'])
@@ -35,7 +35,7 @@ unless File.exist?(ENV['RAILS_ROOT'])
 end
 
 # load test app
-require "#{ENV['RAILS_ROOT']}/config/environment.rb"
+require "#{ENV.fetch('RAILS_ROOT', nil)}/config/environment.rb"
 
 # load RSpec
 require 'rspec/rails'

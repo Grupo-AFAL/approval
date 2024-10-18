@@ -42,7 +42,7 @@ RSpec.describe Approval::RequestForm::Base, type: :model do
       let(:reason) { nil }
       let(:records) { nil }
 
-      it { expect { form.save! }.to raise_error(::ActiveRecord::RecordInvalid) }
+      it { expect { form.save! }.to raise_error(ActiveRecord::RecordInvalid) }
     end
 
     context 'when valid' do

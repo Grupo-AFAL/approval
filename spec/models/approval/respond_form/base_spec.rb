@@ -66,7 +66,7 @@ RSpec.describe Approval::RespondForm::Base, type: :model do
         end
       end
 
-      it { expect { form.save! }.to raise_error(::ActiveRecord::RecordInvalid) }
+      it { expect { form.save! }.to raise_error(ActiveRecord::RecordInvalid) }
     end
 
     context 'when valid' do

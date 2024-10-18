@@ -20,4 +20,5 @@ Gem::Specification.new do |s|
   s.files         = Dir['app/**/*', 'config/**/*', 'db/**/*', 'lib/**/*', 'LICENSE.txt',
                         'README.md']
   s.require_paths = 'lib'
+  s.metadata['rubygems_mfa_required'] = 'true'
 end
