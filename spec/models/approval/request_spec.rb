@@ -10,7 +10,7 @@ RSpec.describe Approval::Request, type: :model do
     it { is_expected.to have_many(:items).class_name('::Approval::Item').dependent(:destroy) }
   end
 
-  it { is_expected.to define_enum_for(:state).with(described_class.states) }
+  it { is_expected.to define_enum_for(:state).with_values(described_class.states) }
 
   describe 'Validation' do
     it { is_expected.to validate_presence_of(:state) }

@@ -19,18 +19,10 @@ unless File.exist?(ENV['RAILS_ROOT'])
   require 'rails/version'
   system <<-COMMAND
     bundle exec rails new tmp/rails-#{Rails::VERSION::STRING} \
-      -m spec/support/rails_template.rb \
-      --skip-bundle \
-      --skip-spring \
-      --skip-listen \
-      --skip-turbolinks \
+      --minimal \
       --skip-bootsnap \
-      --skip-test \
-      --skip-git \
-      --skip-yarn \
-      --skip-puma \
-      --skip-action-mailer \
-      --skip-action-cable
+      --asset-pipeline=none \
+      -m spec/support/rails_template.rb
   COMMAND
 end
 
