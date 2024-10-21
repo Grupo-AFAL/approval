@@ -16,7 +16,7 @@ module Approval
     has_many :comments, class_name: :'Approval::Comment', inverse_of: :request, dependent: :destroy
     has_many :items,    class_name: :'Approval::Item',    inverse_of: :request, dependent: :destroy
 
-    enum state: { pending: 0, cancelled: 1, approved: 2, rejected: 3, executed: 4 }
+    enum :state, { pending: 0, cancelled: 1, approved: 2, rejected: 3, executed: 4 }
 
     scope :recently, -> { order(id: :desc) }
 
@@ -55,7 +55,8 @@ module Approval
       return 'approved' if approved?
       return 'cancelled' if cancelled?
       return 'rejected' if rejected?
-      return 'pending' if pending?
+
+      'pending' if pending?
     end
 
     private

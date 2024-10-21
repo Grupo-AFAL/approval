@@ -1,7 +1,7 @@
 require: rubocop-rails
 
 AllCops:
-  TargetRubyVersion: 2.7.2
+  TargetRubyVersion: 3.2.2
   # uncomment if use rails cops
   # TargetRailsVersion: 5.1
   NewCops: enable
@@ -15,6 +15,8 @@ AllCops:
 
 Layout/LineLength:
   Max: 100
+  Exclude:
+    - "bin/bundle"
 
 Layout/SpaceBeforeBrackets:
   Enabled: false
@@ -29,6 +31,8 @@ Metrics/AbcSize:
 
 Metrics/CyclomaticComplexity:
   Max: 8
+  Exclude: 
+    - bin/bundle
 
 Metrics/MethodLength:
   Max: 30
@@ -64,7 +68,7 @@ Rails/HasAndBelongsToMany:
   Enabled: false
 
 Metrics/BlockLength:
-  IgnoredMethods: ['describe', 'context', 'it', class_methods, define, factory]
+  AllowedMethods: ['describe', 'context', 'it', class_methods, define, factory]
   Exclude:
     - spec/system/*
     - app/models/pos/concerns/orders_statistics.rb

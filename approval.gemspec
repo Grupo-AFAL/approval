@@ -13,11 +13,10 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/yhirano55/approval'
   s.license     = 'MIT'
 
-  s.required_ruby_version = '>= 2.7.2'
-
-  s.add_development_dependency 'bundler', '~> 2.0'
+  s.required_ruby_version = '>= 3.2.2'
 
   s.files         = Dir['app/**/*', 'config/**/*', 'db/**/*', 'lib/**/*', 'LICENSE.txt',
                         'README.md']
   s.require_paths = 'lib'
+  s.metadata['rubygems_mfa_required'] = 'true'
 end

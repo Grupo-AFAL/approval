@@ -6,9 +6,9 @@ module Approval
 
     private
 
-    def instrument(operation, payload = {}, &block)
+    def instrument(operation, payload = {}, &)
       payload.merge!(request: request, user: user, reason: reason)
-      ActiveSupport::Notifications.instrument("#{operation}.approval", payload, &block)
+      ActiveSupport::Notifications.instrument("#{operation}.approval", payload, &)
     end
   end
 end

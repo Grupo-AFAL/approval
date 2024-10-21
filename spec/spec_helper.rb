@@ -12,30 +12,22 @@ ENV['RAILS_ENV'] = 'test'
 
 require 'rails'
 ENV['RAILS'] = Rails.version
-ENV['RAILS_ROOT'] = File.expand_path("../tmp/rails-#{ENV['RAILS']}", __dir__)
+ENV['RAILS_ROOT'] = File.expand_path("../tmp/rails-#{ENV.fetch('RAILS', nil)}", __dir__)
 
 # Create the test app if it doesn't exists
 unless File.exist?(ENV['RAILS_ROOT'])
   require 'rails/version'
   system <<-COMMAND
     bundle exec rails new tmp/rails-#{Rails::VERSION::STRING} \
-      -m spec/support/rails_template.rb \
-      --skip-bundle \
-      --skip-spring \
-      --skip-listen \
-      --skip-turbolinks \
+      --minimal \
       --skip-bootsnap \
-      --skip-test \
-      --skip-git \
-      --skip-yarn \
-      --skip-puma \
-      --skip-action-mailer \
-      --skip-action-cable
+      --asset-pipeline=none \
+      -m spec/support/rails_template.rb
   COMMAND
 end
 
 # load test app
-require "#{ENV['RAILS_ROOT']}/config/environment.rb"
+require "#{ENV.fetch('RAILS_ROOT', nil)}/config/environment.rb"
 
 # load RSpec
 require 'rspec/rails'
